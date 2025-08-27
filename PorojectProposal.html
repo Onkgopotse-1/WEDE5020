@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frosty Delight - Website Project Proposal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #fff6f9 0%, #f0f9ff 100%);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #ff9a9e 0%, #fad0c4 100%);
+            padding: 30px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .logo i {
+            font-size: 42px;
+            color: #d64161;
+            margin-right: 15px;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: #d64161;
+            margin: 25px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #ff9a9e;
+        }
+        
+        h3 {
+            font-size: 1.4rem;
+            color: #ff6b6b;
+            margin: 20px 0 10px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .card {
+            background: linear-gradient(135deg, #fdfcfb 0%, #f5f7fa 100%);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .card i {
+            font-size: 2rem;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+        }
+        
+        .budget-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .budget-table th, .budget-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .budget-table th {
+            background-color: #fad0c4;
+            color: #333;
+        }
+        
+        .budget-table tr:hover {
+            background-color: #f9f9f9;
+        }
+        
+        .highlight {
+            font-weight: bold;
+            color: #d64161;
+        }
+        
+        .summary {
+            background: linear-gradient(135deg, #fad0c4 0%, #ffd1ff 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 20px;
+        }
+        
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .feature {
+            background: #ff6b6b;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            color: #777;
+        }
+        
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <i class="fas fa-ice-cream"></i>
+            <h1>Frosty Delight Website Project Proposal</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>A comprehensive proposal for developing an engaging, responsive website that reflects the sweet and delightful experience of Frosty Delight Ice Cream Parlour.</p>
+        </div>
+
+        <div class="section">
+            <h2>1. Introduction</h2>
+            <p>Frosty Delight is a charming ice cream parlour known for its artisanal flavors and cozy atmosphere. This project proposes the development of a modern, responsive website that will serve as a digital storefront, enhancing our online presence and connecting with both loyal customers and new ice cream enthusiasts.</p>
+            <p>The website will reflect our brand's personality while providing essential information and functionality to drive business growth and create a seamless experience for our customers.</p>
+        </div>
+
+        <div class="section">
+            <h2>2. Significance of the Project</h2>
+            <p>In today's digital age, a strong online presence is crucial for retail businesses. A well-designed website will:</p>
+            <div class="grid">
+                <div class="card">
+                    <i class="fas fa-eye"></i>
+                    <h3>Increased Visibility</h3>
+                    <p>Attract new customers searching for local ice cream shops</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-images"></i>
+                    <h3>Showcase Products</h3>
+                    <p>Platform to showcase our unique flavors and seasonal specials</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-info-circle"></i>
+                    <h3>Information Hub</h3>
+                    <p>Enable customers to easily find location and operating hours</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Promotional Opportunities</h3>
+                    <p>Create opportunities for promotional campaigns and loyalty programs</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>3. Problem Statement</h2>
+            <p>Currently, Frosty Delight lacks a dedicated web presence, which creates several challenges:</p>
+            <ul>
+                <li>Potential customers have difficulty finding accurate information about our location, hours, and menu</li>
+                <li>We miss opportunities to showcase our unique offerings and seasonal specialties</li>
+                <li>There is no efficient way to announce daily specials or temporary closures</li>
+                <li>We cannot effectively compete with other ice cream shops that have established online presences</li>
+                <li>Customer engagement is limited to in-person interactions only</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>4. Target Audience</h2>
+            <p>The website will cater to three primary audience segments:</p>
+            <div class="grid">
+                <div class="card">
+                    <i class="fas fa-home"></i>
+                    <h3>Local Residents & Families</h3>
+                    <p>Seeking information about location, hours, and flavor availability. Interested in party booking for special occasions.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Tourists & Visitors</h3>
+                    <p>Searching for "ice cream near me" while exploring the area. Interested in local flavor specialties.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Event Planners & Businesses</h3>
+                    <p>Potential clients interested in bulk orders for events. Businesses seeking catering partnerships.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>5. Budgeting</h2>
+            <table class="budget-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Description</th>
+                        <th>Estimated Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Domain Registration</td>
+                        <td>frostydelight.com (or similar)</td>
+                        <td>R266.50/year</td>
+                    </tr>
+                    <tr>
+                        <td>Web Hosting</td>
+                        <td>Basic shared hosting plan</td>
+                        <td>R2,131.97</td>/year</td>
+                    </tr>
+                    <tr>
+                        <td>Website Design & Development</td>
+                        <td>Custom design, responsive layout</td>
+                        <td>R26,649.58 (once-off)</td>
+                    </tr>
+                    <tr>
+                        <td>Content Creation</td>
+                        <td>Professional photography of products</td>
+                        <td>R5,329.92</td>
+                    </tr>
+                    <tr>
+                        <td>Maintenance</td>
+                        <td>Monthly updates, backups, and minor changes</td>
+                        <td>R900/month</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td colspan="2">Total Initial Investment</td>
+                        <td>R34,377.96</td>
+                    </tr>
+                    <tr class="highlight">
+                        <td colspan="2">Annual Ongoing Costs</td>
+                        <td>R13,058.30/year</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+
+        <div class="section summary">
+            <h2>6. Summary</h2>
+            <p>The proposed Frosty Delight website will serve as an essential business tool, addressing our current lack of online presence while providing customers with easy access to important information.</p>
+            
+            <p>The project requires a modest investment that will yield significant returns through increased visibility, customer engagement, and ultimately, sales. By implementing this website, we will establish a strong digital foundation that can be expanded with additional features like online ordering and loyalty programs in the future.</p>
+            
+            <h3>Website Features:</h3>
+            <div class="features">
+                <span class="feature">Attractive, mouth-watering design</span>
+                <span class="feature">Mobile-responsive layout</span>
+                <span class="feature">Menu with seasonal updates</span>
+                <span class="feature">Location and hours information</span>
+                <span class="feature">Product gallery</span>
+                <span class="feature">Contact form</span>
+                <span class="feature">Social media integration</span>
+            </div>
+            
+            <p>This investment in our digital presence will position Frosty Delight for continued growth and success in the competitive dessert market.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>Frosty Delight Ice Cream Parlour | Website Project Proposal</p>
+        <p>© 2023 Frosty Delight. All rights reserved.</p>
+    </footer>
+</body>
+</html>

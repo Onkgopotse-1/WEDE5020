@@ -1,0 +1,211 @@
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Aptos', Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.5;
+    color: #333;
+    background: linear-gradient(135deg, #ffd6ff 0%, #bbadff 100%);
+}
+
+/* Header styles */
+header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo h1 {
+    color: #6a4c93;
+    font-size: 1.8rem;
+    margin-bottom: 0.2rem;
+}
+
+.logo p {
+    color: #ff6b6b;
+    font-style: italic;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #6a4c93;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #ff6b6b;
+    color: white;
+}
+
+/* Main content styles */
+main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.hero {
+    background: linear-gradient(135deg, #8a2be2 0%, #ff6b6b 100%);
+    color: white;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.hero button {
+    background-color: #ffd93d;
+    color: #6a4c93;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+.hero button:hover {
+    background-color: #ffc107;
+    transform: translateY(-2px);
+}
+
+.featured-flavors {
+    margin-bottom: 2rem;
+}
+
+.featured-flavors h2 {
+    text-align: center;
+    color: #6a4c93;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.flavor-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.flavor-item {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 2px solid #dee2e6;
+}
+
+.flavor-item h3 {
+    color: #6a4c93;
+    margin-bottom: 0.5rem;
+}
+
+/* Form styles */
+form {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+label {
+    font-weight: bold;
+    color: #6a4c93;
+}
+
+input, select, textarea {
+    padding: 0.8rem;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-family: inherit;
+}
+
+button {
+    background-color: #6a4c93;
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background-color: #5a3d80;
+}
+
+/* Footer styles */
+footer {
+    background-color: #6a4c93;
+    color: white;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 2rem;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Category sections */
+.flavor-category {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+.flavor-category h2 {
+    color: #6a4c93;
+    margin-bottom: 1rem;
+}
+
+.flavor-category ul {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.flavor-category li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+/* Hours and location styling */
+.hours, .location-info, .social-media {
+    background: #e9ecef;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+.hours h2, .location-info h2, .social-media h2 {
+    color: #6a4c93;
+    margin-bottom: 1rem;
+}

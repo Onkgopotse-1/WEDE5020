@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Frosty Delights catering services for events, parties, and special occasions">
+    <title>Catering - Frosty Delights Ice Cream Parlor</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Frosty Delights</h1>
+            <p>Ice Cream Parlor</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="flavours.html">Our Flavours</a></li>
+                <li><a href="catering.html">Catering</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Ice Cream Catering Services</h1>
+        
+        <section class="catering-info">
+            <h2>Make Your Event Sweet!</h2>
+            <p>We bring the ice cream party to you! Perfect for birthdays, weddings, corporate events, and celebrations.</p>
+        </section>
+
+        <section class="catering-options">
+            <h2>Catering Packages</h2>
+            <div class="package">
+                <h3>Sweet & Simple</h3>
+                <p>Ice cream tubs with serving supplies</p>
+            </div>
+            <div class="package">
+                <h3>Full Service</h3>
+                <p>Ice cream cart with attendant</p>
+            </div>
+            <div class="package">
+                <h3>Premium Party</h3>
+                <p>Custom flavors and full setup</p>
+            </div>
+        </section>
+
+        <section class="catering-form">
+            <h2>Catering Inquiry</h2>
+            <form>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone">
+                
+                <label for="event-type">Event Type:</label>
+                <select id="event-type" name="event-type">
+                    <option value="birthday">Birthday Party</option>
+                    <option value="wedding">Wedding</option>
+                    <option value="corporate">Corporate Event</option>
+                    <option value="other">Other</option>
+                </select>
+                
+                <label for="event-date">Event Date:</label>
+                <input type="date" id="event-date" name="event-date">
+                
+                <label for="guests">Number of Guests:</label>
+                <input type="number" id="guests" name="guests" min="10">
+                
+                <label for="message">Special Requests:</label>
+                <textarea id="message" name="message" rows="5"></textarea>
+                
+                <button type="submit">Submit Catering Request</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Frosty Delights Ice Cream Parlor. All rights reserved.</p>
+    </footer>
+</body>
+</html>

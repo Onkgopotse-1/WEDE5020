@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,6 +49,83 @@
                 <li>Environmental responsibility</li>
             </ul>
         </section>
+        <!-- Part 3: Interactive Timeline -->
+<section class="section">
+    <h2>Our Journey</h2>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="timeline-date">2010</div>
+            <div class="timeline-content">
+                <h3>Grand Opening</h3>
+                <p>Frosty Delight opened its doors with just 10 signature flavors</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2015</div>
+            <div class="timeline-content">
+                <h3>Expansion</h3>
+                <p>Opened our second location at the Waterfront</p>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <div class="timeline-date">2020</div>
+            <div class="timeline-content">
+                <h3>Sustainability Focus</h3>
+                <p>Committed to 100% locally sourced ingredients</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Part 3: Team Accordion -->
+<section class="section">
+    <h2>Meet Our Team</h2>
+    <div class="team-accordion">
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3>Sarah Johnson - Head Chef</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>Sarah brings 15 years of culinary experience and creates our most innovative flavor combinations.</p>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <div class="accordion-header">
+                <h3>Mike Chen - Operations Manager</h3>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="accordion-content">
+                <p>Mike ensures everything runs smoothly across both our locations.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+// Team Accordion
+const teamAccordionItems = document.querySelectorAll('.team-accordion .accordion-item');
+teamAccordionItems.forEach(item => {
+    const header = item.querySelector('.accordion-header');
+    header.addEventListener('click', function() {
+        item.classList.toggle('active');
+    });
+});
+
+// Animate timeline on scroll
+function animateTimeline() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    timelineItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateX(0)';
+        }, index * 300);
+    });
+}
+
+// Initialize animations when page loads
+window.addEventListener('load', animateTimeline);
+</script>
     </main>
 
     <footer>

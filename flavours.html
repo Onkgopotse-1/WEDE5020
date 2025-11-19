@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,6 +64,127 @@
             <h2>Seasonal Specials</h2>
             <p>Ask about our rotating seasonal flavors that celebrate the best of each season!</p>
         </section>
+        <!-- Part 3: Enhanced Flavor Search & Filter -->
+<section class="section">
+    <h2>Find Your Perfect Flavor</h2>
+    <div class="search-filter-container">
+        <input type="text" id="flavorSearch" placeholder="Search flavors..." class="search-input">
+        <select id="categoryFilter" class="filter-select">
+            <option value="">All Categories</option>
+            <option value="classic">Classic</option>
+            <option value="gourmet">Gourmet</option>
+            <option value="fruity">Fruity</option>
+            <option value="dairy-free">Dairy-Free</option>
+        </select>
+        <button id="searchFlavors" class="btn">Search</button>
+    </div>
+    <div id="flavorResults" class="flavor-results">
+        <!-- Dynamic results will appear here -->
+    </div>
+</section>
+
+<!-- Part 3: Interactive Flavor Gallery -->
+<section class="section">
+    <h2>Our Flavor Gallery</h2>
+    <div class="flavor-gallery">
+        <!-- Gallery items will be populated by JavaScript -->
+    </div>
+</section>
+
+<script>
+// Flavor Data
+const allFlavors = [
+    { 
+        name: "Honey Lavender Dream", 
+        description: "A delicate blend of local honey and organic lavender flowers", 
+        category: "gourmet",
+        image: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=200&fit=crop",
+        price: "R45"
+    },
+    { 
+        name: "Salted Caramel Crunch", 
+        description: "Rich caramel ice cream with sea salt and chocolate-covered toffee pieces", 
+        category: "classic",
+        image: "https://images.unsplash.com/photo-1517093157656-b9eccef91cb1?w=300&h=200&fit=crop",
+        price: "R42"
+    },
+    { 
+        name: "Mango Tango Sorbet", 
+        description: "Vibrant mango sorbet with a hint of lime zest", 
+        category: "dairy-free",
+        image: "https://images.unsplash.com/photo-1488900128323-21503983a07e?w=300&h=200&fit=crop",
+        price: "R38"
+    }
+];
+
+// Initialize gallery
+function initializeGallery() {
+    const gallery = document.querySelector('.flavor-gallery');
+    gallery.innerHTML = '';
+    
+    allFlavors.forEach(flavor => {
+        const galleryItem = document.createElement('div');
+        galleryItem.className = 'gallery-item';
+        galleryItem.innerHTML = `
+            <img src="${flavor.image}" alt="${flavor.name}" loading="lazy">
+            <div class="gallery-overlay">
+                <h4>${flavor.name}</h4>
+                <p>${flavor.price}</p>
+            </div>
+        `;
+        gallery.appendChild(galleryItem);
+    });
+}
+
+// Search and filter functionality
+document.getElementById('searchFlavors').addEventListener('click', searchFlavors);
+document.getElementById('flavorSearch').addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') searchFlavors();
+});
+
+function searchFlavors() {
+    const searchTerm = document.getElementById('flavorSearch').value.toLowerCase();
+    const category = document.getElementById('categoryFilter').value;
+    const resultsContainer = document.getElementById('flavorResults');
+    
+    const filteredFlavors = allFlavors.filter(flavor => {
+        const matchesSearch = flavor.name.toLowerCase().includes(searchTerm) || 
+                             flavor.description.toLowerCase().includes(searchTerm);
+        const matchesCategory = !category || flavor.category === category;
+        return matchesSearch && matchesCategory;
+    });
+    
+    displayResults(filteredFlavors, resultsContainer);
+}
+
+function displayResults(flavors, container) {
+    container.innerHTML = '';
+    
+    if (flavors.length === 0) {
+        container.innerHTML = '<p>No flavors found matching your criteria.</p>';
+        return;
+    }
+    
+    flavors.forEach(flavor => {
+        const flavorCard = document.createElement('div');
+        flavorCard.className = 'flavor-card';
+        flavorCard.innerHTML = `
+            <img src="${flavor.image}" alt="${flavor.name}">
+            <h3>${flavor.name}</h3>
+            <p>${flavor.description}</p>
+            <div class="flavor-meta">
+                <span class="category">${flavor.category}</span>
+                <span class="price">${flavor.price}</span>
+            </div>
+        `;
+        container.appendChild(flavorCard);
+    });
+}
+
+// Initialize on page load
+initializeGallery();
+searchFlavors(); // Show all flavors initially
+</script>
     </main>
 
     <footer>

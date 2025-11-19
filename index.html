@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,6 +62,134 @@
             <p>Weekends: 9am - 9pm</p>
         </section>
     </main>
+    <!-- Part 3: Search Functionality -->
+<section class="section">
+    <h2>Search Our Flavors</h2>
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search for flavors...">
+        <button class="search-btn">Search</button>
+    </div>
+    <div class="search-results">
+        <!-- Search results will appear here -->
+    </div>
+</section>
+
+<!-- Part 3: Interactive Tabs -->
+<section class="section">
+    <h2>Our Story & Process</h2>
+    <div class="tabs">
+        <div class="tab active" data-tab="tab1">Our Story</div>
+        <div class="tab" data-tab="tab2">Our Flavors</div>
+        <div class="tab" data-tab="tab3">Our Process</div>
+    </div>
+    <div class="tab-content active" id="tab1">
+        <h3>The Frosty Delight Story</h3>
+        <p>Founded in 2010, Frosty Delight began as a small family-owned ice cream shop with a passion for creating unique, artisanal flavors.</p>
+    </div>
+    <div class="tab-content" id="tab2">
+        <h3>Signature Flavors</h3>
+        <ul>
+            <li>Honey Lavender Dream</li>
+            <li>Salted Caramel Crunch</li>
+            <li>Mango Tango Sorbet</li>
+        </ul>
+    </div>
+    <div class="tab-content" id="tab3">
+        <h3>Our Artisanal Process</h3>
+        <ol>
+            <li>Source locally whenever possible</li>
+            <li>Small batch production</li>
+            <li>Slow churning for perfect texture</li>
+        </ol>
+    </div>
+</section>
+
+<!-- Part 3: Interactive Map -->
+<section class="section">
+    <h2>Find Us</h2>
+    <div id="map"></div>
+</section>
+
+<script>
+// Search Functionality
+const searchInput = document.querySelector('.search-input');
+const searchBtn = document.querySelector('.search-btn');
+const searchResults = document.querySelector('.search-results');
+
+const flavors = [
+    { name: "Honey Lavender Dream", description: "A delicate blend of local honey and organic lavender", category: "Gourmet" },
+    { name: "Salted Caramel Crunch", description: "Rich caramel ice cream with sea salt and chocolate-covered toffee", category: "Classic" },
+    { name: "Mango Tango Sorbet", description: "Vibrant mango sorbet with a hint of lime", category: "Dairy-Free" }
+];
+
+searchBtn.addEventListener('click', performSearch);
+searchInput.addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') performSearch();
+});
+
+function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    searchResults.innerHTML = '';
+    
+    if (query === '') {
+        searchResults.innerHTML = '<p>Please enter a search term</p>';
+        return;
+    }
+    
+    const results = flavors.filter(flavor => 
+        flavor.name.toLowerCase().includes(query) || 
+        flavor.description.toLowerCase().includes(query)
+    );
+    
+    if (results.length === 0) {
+        searchResults.innerHTML = '<p>No flavors found matching your search</p>';
+        return;
+    }
+    
+    results.forEach(flavor => {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'search-item';
+        resultItem.innerHTML = `
+            <h3>${flavor.name}</h3>
+            <p>${flavor.description}</p>
+            <span class="feature">${flavor.category}</span>
+        `;
+        searchResults.appendChild(resultItem);
+    });
+}
+
+// Tab Functionality
+const tabs = document.querySelectorAll('.tab');
+tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+        this.classList.add('active');
+        document.getElementById(tabId).classList.add('active');
+    });
+});
+
+// Map Functionality
+function initMap() {
+    const map = L.map('map').setView([-33.9249, 18.4241], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+    L.marker([-33.9249, 18.4241]).addTo(map)
+        .bindPopup('<b>Frosty Delight</b><br>123 Sweet Street, Cape Town')
+        .openPopup();
+}
+
+// Load Leaflet CSS and JS dynamically
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+document.head.appendChild(link);
+
+const script = document.createElement('script');
+script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+script.onload = initMap;
+document.body.appendChild(script);
+</script>
 
     <footer>
         <p>&copy; 2025 Frosty Delights Ice Cream Parlor. All rights reserved.</p>

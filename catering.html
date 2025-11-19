@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,62 +25,198 @@
         </nav>
     </header>
 
-    <main>
-        <h1>Ice Cream Catering Services</h1>
+  
+                
+            
+        </section>
+        <!-- Part 3: Catering Enquiry Form with Validation -->
+<section class="section">
+    <h2>Catering Enquiry</h2>
+    <form id="cateringForm" novalidate>
+        <div class="form-group">
+            <label for="cateringName">Full Name *</label>
+            <input type="text" id="cateringName" name="cateringName" required minlength="2">
+            <div class="error" id="cateringNameError">Please enter your full name</div>
+        </div>
         
-        <section class="catering-info">
-            <h2>Make Your Event Sweet!</h2>
-            <p>We bring the ice cream party to you! Perfect for birthdays, weddings, corporate events, and celebrations.</p>
-        </section>
+        <div class="form-group">
+            <label for="cateringEmail">Email Address *</label>
+            <input type="email" id="cateringEmail" name="cateringEmail" required>
+            <div class="error" id="cateringEmailError">Please enter a valid email address</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="eventType">Event Type *</label>
+            <select id="eventType" name="eventType" required>
+                <option value="">Select event type</option>
+                <option value="birthday">Birthday Party</option>
+                <option value="wedding">Wedding</option>
+                <option value="corporate">Corporate Event</option>
+                <option value="other">Other</option>
+            </select>
+            <div class="error" id="eventTypeError">Please select an event type</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="eventDate">Event Date *</label>
+            <input type="date" id="eventDate" name="eventDate" required min="<?php echo date('Y-m-d'); ?>">
+            <div class="error" id="eventDateError">Please select a valid future date</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="guestCount">Number of Guests *</label>
+            <input type="number" id="guestCount" name="guestCount" required min="10" max="500">
+            <div class="error" id="guestCountError">Please enter number of guests (10-500)</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="budgetRange">Budget Range *</label>
+            <select id="budgetRange" name="budgetRange" required>
+                <option value="">Select budget range</option>
+                <option value="500-1000">R500 - R1000</option>
+                <option value="1000-2500">R1000 - R2500</option>
+                <option value="2500-5000">R2500 - R5000</option>
+                <option value="5000+">R5000+</option>
+            </select>
+            <div class="error" id="budgetRangeError">Please select a budget range</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="specialRequirements">Special Requirements</label>
+            <textarea id="specialRequirements" name="specialRequirements" rows="4" placeholder="Dietary restrictions, theme, etc."></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Submit Enquiry</button>
+    </form>
+    <div class="success-message" id="cateringSuccessMessage">
+        Thank you for your catering enquiry! We'll contact you within 24 hours.
+    </div>
+</section>
 
-        <section class="catering-options">
-            <h2>Catering Packages</h2>
-            <div class="package">
-                <h3>Sweet & Simple</h3>
-                <p>Ice cream tubs with serving supplies</p>
-            </div>
-            <div class="package">
-                <h3>Full Service</h3>
-                <p>Ice cream cart with attendant</p>
-            </div>
-            <div class="package">
-                <h3>Premium Party</h3>
-                <p>Custom flavors and full setup</p>
-            </div>
-        </section>
+<script>
+// Catering Form Validation
+const cateringForm = document.getElementById('cateringForm');
 
-        <section class="catering-form">
-            <h2>Catering Inquiry</h2>
-            <form>
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-                
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                
-                <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" name="phone">
-                
-                <label for="event-type">Event Type:</label>
-                <select id="event-type" name="event-type">
-                    <option value="birthday">Birthday Party</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="corporate">Corporate Event</option>
-                    <option value="other">Other</option>
-                </select>
-                
-                <label for="event-date">Event Date:</label>
-                <input type="date" id="event-date" name="event-date">
-                
-                <label for="guests">Number of Guests:</label>
-                <input type="number" id="guests" name="guests" min="10">
-                
-                <label for="message">Special Requests:</label>
-                <textarea id="message" name="message" rows="5"></textarea>
-                
-                <button type="submit">Submit Catering Request</button>
-            </form>
-        </section>
+cateringForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (validateCateringForm()) {
+        // Calculate and show quote
+        const guestCount = parseInt(document.getElementById('guestCount').value);
+        const budgetRange = document.getElementById('budgetRange').value;
+        const quote = calculateQuote(guestCount, budgetRange);
+        
+        document.getElementById('cateringSuccessMessage').innerHTML = `
+            Thank you for your catering enquiry!<br>
+            Estimated cost: <strong>${quote}</strong><br>
+            We'll contact you within 24 hours to confirm details.
+        `;
+        document.getElementById('cateringSuccessMessage').style.display = 'block';
+        cateringForm.reset();
+        
+        setTimeout(() => {
+            document.getElementById('cateringSuccessMessage').style.display = 'none';
+        }, 8000);
+    }
+});
+
+function validateCateringForm() {
+    let isValid = true;
+    
+    // Name validation
+    const name = document.getElementById('cateringName').value.trim();
+    if (name.length < 2) {
+        showCateringError('cateringNameError', 'Please enter your full name');
+        isValid = false;
+    } else {
+        hideCateringError('cateringNameError');
+    }
+    
+    // Email validation
+    const email = document.getElementById('cateringEmail').value.trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showCateringError('cateringEmailError', 'Please enter a valid email address');
+        isValid = false;
+    } else {
+        hideCateringError('cateringEmailError');
+    }
+    
+    // Event type validation
+    const eventType = document.getElementById('eventType').value;
+    if (!eventType) {
+        showCateringError('eventTypeError', 'Please select an event type');
+        isValid = false;
+    } else {
+        hideCateringError('eventTypeError');
+    }
+    
+    // Date validation
+    const eventDate = document.getElementById('eventDate').value;
+    const today = new Date().toISOString().split('T')[0];
+    if (!eventDate || eventDate < today) {
+        showCateringError('eventDateError', 'Please select a valid future date');
+        isValid = false;
+    } else {
+        hideCateringError('eventDateError');
+    }
+    
+    // Guest count validation
+    const guestCount = parseInt(document.getElementById('guestCount').value);
+    if (!guestCount || guestCount < 10 || guestCount > 500) {
+        showCateringError('guestCountError', 'Please enter number of guests (10-500)');
+        isValid = false;
+    } else {
+        hideCateringError('guestCountError');
+    }
+    
+    // Budget validation
+    const budgetRange = document.getElementById('budgetRange').value;
+    if (!budgetRange) {
+        showCateringError('budgetRangeError', 'Please select a budget range');
+        isValid = false;
+    } else {
+        hideCateringError('budgetRangeError');
+    }
+    
+    return isValid;
+}
+
+function calculateQuote(guests, budget) {
+    const baseCost = guests * 45; // R45 per person base
+    let quote = baseCost;
+    
+    // Adjust based on budget range
+    switch(budget) {
+        case '500-1000':
+            quote = Math.max(500, Math.min(1000, quote));
+            break;
+        case '1000-2500':
+            quote = Math.max(1000, Math.min(2500, quote));
+            break;
+        case '2500-5000':
+            quote = Math.max(2500, Math.min(5000, quote));
+            break;
+        case '5000+':
+            quote = Math.max(5000, quote);
+            break;
+    }
+    
+    return 'R' + quote.toFixed(2);
+}
+
+function showCateringError(errorId, message) {
+    const errorElement = document.getElementById(errorId);
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+}
+
+function hideCateringError(errorId) {
+    document.getElementById(errorId).style.display = 'none';
+}
+
+// Set minimum date to today
+document.getElementById('eventDate').min = new Date().toISOString().split('T')[0];
+</script>
     </main>
 
     <footer>
